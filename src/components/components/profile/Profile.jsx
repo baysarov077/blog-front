@@ -22,6 +22,7 @@ const Profile = () => {
       <input onChange={(e) => setFile(e.target.files[0])} type="file" />
       <div>
         {users.map((item) => {
+          console.log(item);
           if (item._id === id) {
             return <img src={`http://localhost:8000/${item.img}`} />;
           }
