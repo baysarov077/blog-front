@@ -30,23 +30,22 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="col-md-4 my-2  buttons">
-            <div className="buttons">
-              <Button className="headerBtn coll">Написать</Button>
-              <Button className="headerBtn coll">Пусто</Button>
-              <Button className="headerBtn prof">Профиль</Button>
-              {token ? (
-                <Link to={"/"}>
-                  <Button onClick={unSign} className="headerBtn auth">
-                    Выйти
-                  </Button>
-                </Link>
-              ) : (
-                <Link to={"/reg"}>
-                  <Button className="headerBtn auth">Войти</Button>
-                </Link>
-              )}
-            </div>
+          <div className="col-md-4 my-2  buttons"> 
+          <div className="buttons">
+            <Button className="headerBtn coll">Написать</Button>
+            <Button className="headerBtn coll">Пусто</Button>
+            <Button className="headerBtn prof">Профиль</Button>
+            {token ? (
+              <Link to={"/"}>
+                <Button onClick={unSign} className="headerBtn auth">
+                  Выйти
+                </Button>
+              </Link>
+            ) : (
+              <Link to={"/reg"}>
+                <Button className="headerBtn auth">Войти</Button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
