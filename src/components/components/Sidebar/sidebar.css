@@ -36,6 +36,7 @@
 @media screen and (max-width: 768px) {
   .sidebar-list {
     display: flex;
+    flex-wrap: wrap;
     border: 0;
     background-color: #fff;
     margin: 0;
@@ -81,6 +82,7 @@
 @media screen and (max-width: 1720px) {
   .sidebar-list {
     display: flex;
+    flex-wrap: wrap;
     border: 0;
     background-color: #fff;
     margin: 0;

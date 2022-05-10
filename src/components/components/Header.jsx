@@ -9,11 +9,10 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const token = useSelector((state) => state.auth.token);
 
-
   const unSign = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('id')
-    window.location.reload()
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    window.location.reload();
   };
 
   return (
@@ -31,13 +30,7 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="col-md-4 my-2  buttons">
-            <Button className="headerBtn">Написать</Button>
-            <Button className="headerBtn">Пусто</Button>
-            <Button className="headerBtn"><Link to={'/blog'}>Блог</Link></Button>
-            {token ? <Button onClick={unSign} className="headerBtn"><Link to={'/'}>Выйти</Link></Button> : <Button className="headerBtn"><Link to={'/reg'}>Войти</Link></Button>}
-             
-
+          <div className="col-md-4 my-2  buttons"> 
           <div className="buttons">
             <Button className="headerBtn coll">Написать</Button>
             <Button className="headerBtn coll">Пусто</Button>
@@ -53,10 +46,8 @@ const Header = () => {
                 <Button className="headerBtn auth">Войти</Button>
               </Link>
             )}
-
           </div>
         </div>
-      </div>
       </div>
     </header>
   );

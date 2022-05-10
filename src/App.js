@@ -11,6 +11,7 @@ import Blog from "./components/components/Blog/Blog";
 import Profile from "./components/components/profile/Profile";
 import ScrollToTop from "./components/components/ScrollToTop";
 import About from "./components/pages/About.jsx/About";
+import Feed from "./components/pages/feed/Feed";
 import BlogPage from "./components/components/Blog/BlogPage";
 
 function App() {
@@ -23,9 +24,8 @@ function App() {
             <Route path="/" element={<Main />} />
             <Route path="/reg" element={<Reg />} />
             <Route path="/login" element={<Login />} />
-
+            <Route path="/myfeed" element={<Feed />} />
             <Route path="/blog" element={<Blog />} />
-
             <Route path="/about" element={<About />} />
             <Route path="/profile/:id" element={<Profile />} />
             <Route path="/post" element={<BlogPage />} />
