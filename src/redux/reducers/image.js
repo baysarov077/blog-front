@@ -1,6 +1,6 @@
 const initialState = {
   users: [],
-  loader: false,
+  loader: true,
   error: null,
 };
 
@@ -9,36 +9,36 @@ export const imgReducer = (state = initialState, action) => {
     case "profile/image/pendeing":
       return {
         ...state,
-        loader: true,
+        loader: false,
       };
     case "add/image/fulfilled":
       return {
         ...state,
-        loader: false,
+        loader: true,
         users: [state.users, action.payload],
       };
     case "profile/image/rejected":
       return {
         ...state,
-        loader: false,
+        loader: true,
         error: action.payload,
       };
     case "getImage/image/pending":
       return {
         ...state,
-        loader: true,
+        loader: false,
         error: null,
       };
     case "getImage/image/fulfilled":
       return {
         ...state,
-        loader: false,
-        users: action.payload,
+        loader: true,
+        users:  action.payload
       };
     case "getImage/image/rejected":
       return {
         ...state,
-        loader: false,
+        loader: true,
         error: action.error,
       };
     default:
@@ -58,23 +58,25 @@ export const addImage = (id, file) => {
         body: formData,
       });
       const data = await res.json();
-      console.log(data);
+
       dispatch({ type: "add/image/fulfilled", payload: data });
     } catch (e) {
       dispatch({ type: "profile/image/rejected", payload: e.toString() });
     }
   };
 };
-export const getImage = (id) => {
+export const getImage = () => {
   return async (dispatch) => {
     dispatch({ type: "getImage/image/pending" });
     try {
       const res = await fetch(`http://localhost:8000/users`);
       const data = await res.json();
-
       dispatch({ type: "getImage/image/fulfilled", payload: data });
+
+
     } catch (e) {
       dispatch({ type: "getImage/image/rejected", payload: e.toString() });
     }
   };
 };
+

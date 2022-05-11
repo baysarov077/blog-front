@@ -15,6 +15,9 @@ const Profile = () => {
   const user = useSelector((state) =>
     state.imgReducer.users.find((user) => user._id === id)
   );
+  const postUser = useSelector((state) => state.blogReducer)
+  console.log(postUser);
+
 
   console.log(user);
   useEffect(() => {
@@ -50,6 +53,8 @@ const Profile = () => {
 
   return (
 
+<div style={{backgroundColor: '#fafbff'}}>
+<Header />
     <div className="border__radius" >
 
     <div className="main_div">
@@ -86,6 +91,10 @@ const Profile = () => {
       </div>
       </div>
 
+    </div>
+    </div>
+    <div className="posts">
+    <h1>Посты</h1>
     </div>
     </div>
 

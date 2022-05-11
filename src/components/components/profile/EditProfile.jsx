@@ -17,23 +17,29 @@ const EditProfile = () => {
     const { id } = useParams();
     const [file, setFile] = useState();
 
-    const user = useSelector((state) =>
-      state.imgReducer.users.find((user) => user._id === id)
+
+useEffect(() => {
+    dispatch(getImage());
+;
+  }, [dispatch, id]);
+
+    const users1 = useSelector((state) =>
+      state.imgReducer.users
     );
+    console.log(users1);
+    const load = useSelector((state) => state.imgReducer.loader)
 
 
-    useEffect(() => {
-      dispatch(getImage(id));
-    }, [dispatch]);
-  
     const handleImage = () => {
       dispatch(addImage(id, file));
 
     };
-
+ const user = users1.find((user) => user._id === id)
 
     return (
         <>
+        {load && !users1 ? <div>loading</div> : 
+        <div>
         <Header />
         <div className="div__in__edit">
             <div className="h1__user">
@@ -103,9 +109,12 @@ const EditProfile = () => {
             </div>
 
         
-        </div>
+                            </div>
 
+        </div>
+}
         </>
+
     );
 };
 
