@@ -23,22 +23,21 @@ useEffect(() => {
 ;
   }, [dispatch, id]);
 
-    const users1 = useSelector((state) =>
-      state.imgReducer.users
+    const user = useSelector((state) =>
+      state.imgReducer.users.find((user) => user._id === id)
     );
-    console.log(users1);
-    const load = useSelector((state) => state.imgReducer.loader)
-
 
     const handleImage = () => {
       dispatch(addImage(id, file));
 
     };
- const user = users1.find((user) => user._id === id)
+ 
+    if(!user) {
+        return 'loading...'
+    }
 
     return (
         <>
-        {load && !users1 ? <div>loading</div> : 
         <div>
         <Header />
         <div className="div__in__edit">
@@ -112,7 +111,6 @@ useEffect(() => {
                             </div>
 
         </div>
-}
         </>
 
     );

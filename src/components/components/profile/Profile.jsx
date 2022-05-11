@@ -21,7 +21,7 @@ const Profile = () => {
 
   console.log(user);
   useEffect(() => {
-    dispatch(getImage(id));
+    dispatch(getImage());
   }, [dispatch]);
 
   const handleImage = () => {

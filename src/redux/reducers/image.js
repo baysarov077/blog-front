@@ -1,6 +1,6 @@
 const initialState = {
   users: [],
-  loader: true,
+  loader: false,
   error: null,
 };
 
@@ -9,36 +9,36 @@ export const imgReducer = (state = initialState, action) => {
     case "profile/image/pendeing":
       return {
         ...state,
-        loader: false,
+        loader: true,
       };
     case "add/image/fulfilled":
       return {
         ...state,
-        loader: true,
+        loader: false,
         users: [state.users, action.payload],
       };
     case "profile/image/rejected":
       return {
         ...state,
-        loader: true,
+        loader: false,
         error: action.payload,
       };
     case "getImage/image/pending":
       return {
         ...state,
-        loader: false,
+        loader: true,
         error: null,
       };
     case "getImage/image/fulfilled":
       return {
         ...state,
-        loader: true,
+        loader: false,
         users:  action.payload
       };
     case "getImage/image/rejected":
       return {
         ...state,
-        loader: true,
+        loader: false,
         error: action.error,
       };
     default:
