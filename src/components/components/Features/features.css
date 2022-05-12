@@ -1,0 +1,67 @@
+.featuresMain {
+  background-color: rgb(14, 15, 24);
+  width: 100%;
+  min-height: 400px;
+  margin-top: 50px;
+  border-radius: 20px;
+  padding-top: 5%;
+}
+
+.featuresFlex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.wordImg {
+  width: 100%;
+  padding-right: 10%;
+}
+
+.featuresText {
+  font-size: 3rem;
+  color: #fff;
+  width: 50%;
+  margin-left: 10%;
+}
+
+.key {
+  margin-left: 10%;
+  color: greenyellow;
+}
+
+.featuresSection {
+  margin-top: 10px;
+  width: 70%;
+  margin: auto;
+
+}
+
+.cards {
+  width: 96%;
+  margin: auto;
+  padding: 10%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .wordImg {
+    width: 150%;
+    padding-right: 40%;
+    margin-top: 15%;
+  }
+
+  .featuresFlex {
+    flex-wrap: wrap;
+  }
+
+  .featuresText {
+    text-align: center;
+    margin-left: 25%;
+  }
+
+  .key {
+    padding-left: 30%;
+  }
+}

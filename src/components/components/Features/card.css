@@ -1,0 +1,40 @@
+.cardImg {
+  padding: 0;
+  margin: 0;
+  width: 2rem;
+  height: 2rem;
+  fill: currentColor;
+  margin-right: 1rem;
+  margin-bottom: 5rem;
+}
+
+.featureCard {
+  width: 42%;
+  align-items: center;
+  display: flex;
+  color: #fff;
+  margin-right: 5rem;
+  margin-top: 2rem;
+}
+
+.cardH3 {
+  width: 100%;
+  text-align: start;
+}
+
+.cardText {
+  font-size: 18px;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .cardText {
+    font-size: 14px;
+    width: 200%;
+  }
+
+  .cardH3 {
+    margin-left: 6rem;
+    text-align: center;
+  }
+}

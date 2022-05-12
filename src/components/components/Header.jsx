@@ -29,8 +29,6 @@ const Header = () => {
               <input type="text" placeholder="Search" className="searcher" />
             </div>
           </div>
-
-          <div className="col-md-4 my-2  buttons"> 
           <div className="buttons">
             <Button className="headerBtn coll">Написать</Button>
             <Button className="headerBtn coll">Пусто</Button>
