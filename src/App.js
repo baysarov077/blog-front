@@ -18,7 +18,11 @@ import EditProfile from "./components/components/profile/EditProfile";
 import WeatherApp from "./components/components/profile/Weather/WeatherApp";
 import TapePage from "./components/Tape/TapePage";
 import MainTapeBlog from "./components/Tape/MainTapeBlog";
+<<<<<<< HEAD
 import ClosedProfile from "./components/components/profile/ClosedProfile";
+=======
+import UserProfile from "./components/components/UserProfile/UserProfile";
+>>>>>>> 6fa416882168692731f2b8ef81ece6e3ed3fe8cd
 
 
 function App() {
@@ -45,6 +49,7 @@ function App() {
 
             <Route path="/post" element={<MainTapeBlog />} />
             <Route path="/post/:id" element={<TapePage />} />
+            <Route path="/user/:id" element={<UserProfile />} />
 
           </Routes>
         </BrowserRouter>
