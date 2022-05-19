@@ -7,6 +7,7 @@ import Header from "../Header";
 import {BsPen} from 'react-icons/bs'
 import './style.css'
 
+
 const Profile = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -26,11 +27,6 @@ console.log(user);
   const blogus = blog.find((item) => item.user === id)
 
 console.log(blogus);
-
-
-
- 
-
 
 
   if (!user ) {
