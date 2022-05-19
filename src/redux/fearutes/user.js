@@ -1,7 +1,7 @@
 const userState = {
   users: [],
   loading: true,
-  user: {}
+  user: {},
 };
 
 export const users = (state = userState, action) => {
@@ -34,27 +34,26 @@ export const users = (state = userState, action) => {
         ...state,
         loading: true,
       };
-    case 'getOne/user/fulfilled': {
-      return{
+    case "getOne/user/fulfilled": {
+      return {
         ...state,
         user: action.payload,
         loading: false,
-
-      }
+      };
     }
     case "addSub/user/fulfilled": {
-      return{
+      return {
         ...state,
         user: action.payload,
         loading: false,
-      }
+      };
     }
     case "deleteSub/user/fulfilled": {
-      return{
+      return {
         ...state,
         user: action.payload,
         loading: false,
-      }
+      };
     }
     default:
       return state;
@@ -82,7 +81,7 @@ export const addSub = (myId, id) => {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          Authorization: ` Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify({ subscribtion: myId }),
       });
@@ -115,10 +114,12 @@ export const deleteSub = (myId, id) => {
 };
 export const fetchOneUser = (id) => {
   return async (dispatch) => {
+    console.log(id);
     try {
       dispatch({ type: "getOne/user/pending" });
       const response = await fetch(`http://localhost:8000/user/${id}`);
       const json = await response.json();
+      console.log(json);
       dispatch({ type: "getOne/user/fulfilled", payload: json });
     } catch (error) {
       dispatch({ type: "getOne/user/rejected", payload: error.message });

@@ -21,7 +21,7 @@ const UserProfile = () => {
   };
   const deleteSubs = () => {
     dispatch(deleteSub(myId, id));
-  }
+  };
   if (loader) {
     return "Loader";
   }
@@ -45,16 +45,11 @@ const UserProfile = () => {
             {loader && <div>Загрузка</div>}
             <div className="button__edit__profile-deni">
               {subscribtion ? (
-                <button className="button-deni deni_btn-2" 
-                  onClick={deleteSubs}
-                  >
+                <button className="button-deni deni_btn-2" onClick={deleteSubs}>
                   Отписаться
                 </button>
               ) : (
-                <button
-                  className="button-deni deni_btn"
-                  onClick={addSubs}
-                >
+                <button className="button-deni deni_btn" onClick={addSubs}>
                   Подписаться
                 </button>
               )}
