@@ -18,6 +18,7 @@ import EditProfile from "./components/components/profile/EditProfile";
 import WeatherApp from "./components/components/profile/Weather/WeatherApp";
 import TapePage from "./components/Tape/TapePage";
 import MainTapeBlog from "./components/Tape/MainTapeBlog";
+import ClosedProfile from "./components/components/profile/ClosedProfile";
 
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
             <Route path="/edit/profile/:id" element={<EditProfile />} />
             <Route path="/weather" element={<WeatherApp/>} />
             
-
+            <Route path='/closed/profile/:id' element={<ClosedProfile />}/>
             <Route path='/footer' element={<Footer />} />
 
 
