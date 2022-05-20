@@ -43,7 +43,7 @@ const Starting = () => {
         <Row xs={1} md={2} className="g-4">
           {Array.from({ length: 4 }).map((_, idx) => (
             <Col>
-              <Card>
+              <Card className="temacard">
                 <CardImg
                   variant="top"
                   src="https://it-aurora.ru/wp-content/uploads/2021/03/avtomatizaciya-malogo-biznesa.jpg"
@@ -113,8 +113,6 @@ const Starting = () => {
           </Accordion>
         </div>
       </div>
-
-      <Footer />
     </section>
   );
 };

@@ -7,7 +7,6 @@ import imgLike from "../img/heart.png";
 import imgMark from "../img/bookmark.png";
 import imgMarkBlack from "../img/bookmarkBlack.png";
 import imgLikeRed from "../img/heartRed.png";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link, useParams } from "react-router-dom";
 import "./tape.css";
@@ -19,7 +18,6 @@ const BlogPage = () => {
   const idParams = useParams().id;
   const users = useSelector((state) => state.users.users);
 
-  console.log(blog);
   const userImg = useSelector((state) =>
     state.imgReducer.users.find((user) => user.img)
   );
@@ -48,6 +46,7 @@ const BlogPage = () => {
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
+
   if (!users) {
     return "loadinggg";
   }

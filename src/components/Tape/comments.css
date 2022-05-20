@@ -34,12 +34,13 @@
 
 
 .content-item {
-    margin: auto;
+  margin: auto;
   padding: 30px 0;
   background-color: #ffffff;
 }
+
 .col-sm-8 {
-    width: 100%;
+  width: 100%;
 }
 
 .content-item.grey {
@@ -114,7 +115,7 @@
   margin: 0;
 }
 
-#comments .media > .pull-left {
+#comments .media>.pull-left {
   margin-right: 20px;
 }
 
@@ -161,27 +162,37 @@
   font-size: 15px;
   margin-right: 10px;
 }
+
 .row {
-    align-items: center;
+  align-items: center;
 }
+
 .info_user_comt {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
+
+.info_user_comt button {
+  border: 1px solid rgba(0, 0, 255, 0.301);
+}
+
 .container_comments {
-    width: 80%;
-    margin: auto;
+  width: 80%;
+  margin: auto;
 }
+
 .media {
   width: 100%;
   padding-bottom: 10px;
 }
+
 .prof_comt_main {
   width: 100%;
   display: flex;
   padding-bottom: 20px;
 }
+
 .comt_text {
   width: 100%;
   display: flex;
@@ -194,21 +205,33 @@
 
 .prof_comt button {
   width: 60px;
+  align-items: center;
+}
+
+.prof_comt button {
+  margin-bottom: 10px;
+  width: 60px;
   border: 1px solid rgba(255, 0, 0, 0.205);
   border-radius: 5px;
   background-color: inherit;
-  
+
 }
+
 .prof_comt img {
   width: 60px;
   padding-top: 10px;
 }
+
 .prof_comt p {
-  font-size: 22px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
+
 .prof_comt {
   width: 100%;
 }
+
 .comt_text p {
   align-items: center;
   width: 600px;
@@ -216,5 +239,5 @@
   margin-top: 20px;
   padding: 5px;
   border-radius: 10px;
-  
+  border: 1px solid rgba(0, 0, 255, 0.219);
 }

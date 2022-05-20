@@ -13,9 +13,6 @@ const TapePage = () => {
   const idUser = localStorage.getItem("id");
 
   const blog = useSelector((state) => state.blogReducer.blog);
-  console.log(blog);
-
-
 
   //   const addComt = () => {
   //     dispatch(postNewsComt(idUser, comt, user));
@@ -25,7 +22,6 @@ const TapePage = () => {
   useEffect(() => {
     dispatch(loadBlog());
   }, [dispatch]);
-
 
   return (
     <>
@@ -50,7 +46,7 @@ const TapePage = () => {
                     <div className="tape__text">
                       <p>{item.text}</p>
                     </div>
-                    <Comments/>
+                    <Comments />
                   </div>
                 </div>
               </>

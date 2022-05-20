@@ -114,12 +114,10 @@ export const deleteSub = (myId, id) => {
 };
 export const fetchOneUser = (id) => {
   return async (dispatch) => {
-    console.log(id);
     try {
       dispatch({ type: "getOne/user/pending" });
       const response = await fetch(`http://localhost:8000/user/${id}`);
       const json = await response.json();
-      console.log(json);
       dispatch({ type: "getOne/user/fulfilled", payload: json });
     } catch (error) {
       dispatch({ type: "getOne/user/rejected", payload: error.message });
