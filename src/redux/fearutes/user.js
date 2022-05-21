@@ -1,7 +1,7 @@
 const userState = {
   users: [],
   loading: true,
-  user: {}
+  user: {},
 };
 
 export const users = (state = userState, action) => {
@@ -34,11 +34,26 @@ export const users = (state = userState, action) => {
         ...state,
         loading: true,
       };
-    case 'getOne/user/fulfilled': {
-      return{
+    case "getOne/user/fulfilled": {
+      return {
         ...state,
-        user: action.payload
-      }
+        user: action.payload,
+        loading: false,
+      };
+    }
+    case "addSub/user/fulfilled": {
+      return {
+        ...state,
+        user: action.payload,
+        loading: false,
+      };
+    }
+    case "deleteSub/user/fulfilled": {
+      return {
+        ...state,
+        user: action.payload,
+        loading: false,
+      };
     }
     default:
       return state;
@@ -58,21 +73,42 @@ export const fetchUsers = () => {
   };
 };
 
-export const addSub = (idLocal, id) => {
+export const addSub = (myId, id) => {
   return async (dispatch) => {
     try {
       dispatch({ type: "addSub/user/pending" });
-      const response = await fetch(`http://localhost:8000/user/${idLocal}`, {
+      const response = await fetch(`http://localhost:8000/user/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body: JSON.stringify({ subscript: id }),
+        body: JSON.stringify({ subscribtion: myId }),
       });
-      dispatch({ type: "addSub/user/fulfilled", payload: { idLocal, id } });
+      const json = await response.json();
+      dispatch({ type: "addSub/user/fulfilled", payload: json });
     } catch (error) {
       dispatch({ type: "addSub/user/rejected", payload: error.message });
+    }
+  };
+};
+export const deleteSub = (myId, id) => {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: "deleteSub/user/pending" });
+      const response = await fetch(`http://localhost:8000/user/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({ subscribtion: myId }),
+      });
+      const json = await response.json();
+      dispatch({ type: "deleteSub/user/fulfilled", payload: json });
+      console.log(json);
+    } catch (error) {
+      dispatch({ type: "deleteSub/user/rejected", payload: error.message });
     }
   };
 };
@@ -82,6 +118,7 @@ export const fetchOneUser = (id) => {
       dispatch({ type: "getOne/user/pending" });
       const response = await fetch(`http://localhost:8000/user/${id}`);
       const json = await response.json();
+      console.log(json);
       dispatch({ type: "getOne/user/fulfilled", payload: json });
     } catch (error) {
       dispatch({ type: "getOne/user/rejected", payload: error.message });

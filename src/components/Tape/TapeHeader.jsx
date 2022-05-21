@@ -8,6 +8,7 @@ import { addSub, fetchUsers } from "../../redux/fearutes/user";
 const TapeHeader = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const myId = useSelector((state) => state.auth.userId);
   const userImg = useSelector((state) =>
     state.imgReducer.users.find((user) => user.img)
   );
@@ -29,6 +30,10 @@ const TapeHeader = () => {
     return "loading...";
   }
 
+  const consilium = (user, myId) => {
+    return user.subscrib.find((item) => item.subscribtion === myId);
+  };
+
   return (
     <div className="tape_header_main">
       <div className="tape_header_blog">
@@ -37,15 +42,48 @@ const TapeHeader = () => {
             if (item._id === id && item.user === user._id) {
               return (
                 <div className="tape_profile_post" key={item._id}>
-                  <Link to={`/user/${user._id}`}>
-                    <img
-                      className=""
-                      src={`http://localhost:8000/${user.img}`}
-                    />
-                    <div>
-                      <span className="header__nickaname">{user.nickname}</span>
-                    </div>
-                  </Link>
+                  {consilium(user, myId) ? (
+                    <Link to={`/user/${user._id}`}>
+                      <img
+                        className=""
+                        src={`http://localhost:8000/${user.img}`}
+                      />
+                      <div>
+                        <span className="header__nickaname">
+                          {user.nickname}
+                        </span>
+                      </div>
+                    </Link>
+                  ) : (
+                    <>
+                      {" "}
+                      {user.profileStatus ? (
+                        <Link to={`/closed/profile/${user._id}`}>
+                          <img
+                            className=""
+                            src={`http://localhost:8000/${user.img}`}
+                          />
+                          <div>
+                            <span className="header__nickaname">
+                              {user.nickname}
+                            </span>
+                          </div>
+                        </Link>
+                      ) : (
+                        <Link to={`/user/${user._id}`}>
+                          <img
+                            className=""
+                            src={`http://localhost:8000/${user.img}`}
+                          />
+                          <div>
+                            <span className="header__nickaname">
+                              {user.nickname}
+                            </span>
+                          </div>
+                        </Link>
+                      )}{" "}
+                    </>
+                  )}
                 </div>
               );
             }

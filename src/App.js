@@ -18,12 +18,10 @@ import EditProfile from "./components/components/profile/EditProfile";
 import WeatherApp from "./components/components/profile/Weather/WeatherApp";
 import TapePage from "./components/Tape/TapePage";
 import MainTapeBlog from "./components/Tape/MainTapeBlog";
-<<<<<<< HEAD
-import ClosedProfile from "./components/components/profile/ClosedProfile";
-=======
-import UserProfile from "./components/components/UserProfile/UserProfile";
->>>>>>> 6fa416882168692731f2b8ef81ece6e3ed3fe8cd
 
+import ClosedProfile from "./components/components/profile/ClosedProfile";
+
+import UserProfile from "./components/components/UserProfile/UserProfile";
 
 function App() {
   return (
@@ -41,16 +39,14 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/profile/:id" element={<Profile />} />
             <Route path="/edit/profile/:id" element={<EditProfile />} />
-            <Route path="/weather" element={<WeatherApp/>} />
-            
-            <Route path='/closed/profile/:id' element={<ClosedProfile />}/>
-            <Route path='/footer' element={<Footer />} />
+            <Route path="/weather" element={<WeatherApp />} />
 
+            <Route path="/closed/profile/:id" element={<ClosedProfile />} />
+            <Route path="/footer" element={<Footer />} />
 
             <Route path="/post" element={<MainTapeBlog />} />
             <Route path="/post/:id" element={<TapePage />} />
             <Route path="/user/:id" element={<UserProfile />} />
-
           </Routes>
         </BrowserRouter>
       </Provider>

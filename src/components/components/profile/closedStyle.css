@@ -1,0 +1,44 @@
+.main__div {
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  width: 49%;
+  margin-top: 70px;
+}
+.return__user {
+  display: flex;
+}
+.image__profile {
+  margin: auto;
+  align-items: start;
+  text-align: start;
+}
+.nick___name {
+  padding-top: 70px;
+  padding-right: 330px;
+  text-align: start;
+  align-items: start;
+  display: inline;
+  font-size: 38px;
+  line-height: 1.5;
+}
+.button___closed {
+  padding: 6px 290px;
+  border: none;
+  background-color: #1560bd;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+.label_closed {
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1px;
+  --tw-text-opacity: 1;
+  color: rgba(107, 114, 128, var(--tw-text-opacity));
+}
+.subb {
+  align-items: center;
+  width: 148px;
+  height: 20px;
+}

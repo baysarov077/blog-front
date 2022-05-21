@@ -11,7 +11,6 @@ import { Dropdown } from "react-bootstrap";
 import { fetchOneUser, fetchUsers } from "../../redux/fearutes/user";
 
 const Header = () => {
-
   const dispatch = useDispatch();
   const id = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
@@ -19,7 +18,6 @@ const Header = () => {
     dispatch(fetchUsers());
     dispatch(fetchOneUser());
   }, [dispatch]);
-
 
   const users = useSelector((state) => state.users.users);
   const unSign = () => {
@@ -34,11 +32,9 @@ const Header = () => {
     setValue(e.target.value);
   };
 
-
-  const filteredNames = users.filter((item) => {
-    return item.nickname.includes(value);
-  });
-
+  // const filteredNames = users.filter((item) => {
+  //   return item.nickname.includes(value);
+  // });
 
   return (
     <>
@@ -86,12 +82,6 @@ const Header = () => {
                 </Button>
               ) : null}
 
-              {id ? (
-                <Link to={`/profile/${id}`}>
-                  <Button className="headerBtn coll">Профиль</Button>
-                </Link>
-              ) : null}
-
               {token ? (
                 <Link to={"/"}>
                   <Button onClick={unSign} className="headerBtn auth">
@@ -107,7 +97,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {value && (
+      {/* {value && (
         <div className="modalw">
           {filteredNames.map((item) => {
             return (
@@ -126,7 +116,7 @@ const Header = () => {
             );
           })}
         </div>
-      )}
+      )} */}
     </>
   );
 };
