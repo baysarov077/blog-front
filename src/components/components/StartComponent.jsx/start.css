@@ -66,6 +66,8 @@ p {
 .temacard {
   background-color: var(--background);
   color: var(--text-primary);
+  width: 1500px;
+
 }
 .largeBtn {
   width: 190px;
@@ -504,6 +506,7 @@ input:checked + .slider:before {
 @media screen and (max-width: 768px) {
   .startBlokc {
     flex-wrap: wrap;
+    
   }
 
   .startingHeading,

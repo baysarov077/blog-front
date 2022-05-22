@@ -28,14 +28,14 @@ const UserProfile = () => {
   const deleteSubs = () => {
     dispatch(deleteSub(myId, id));
   }
-  // if (loader) {
-  //   return "Loader";
-  // }
-  // if (!posts) {
-  //   return "Loader";
-  // }
+  if (loader) {
+    return "Loader";
+  }
+  if (!posts) {
+    return "Loader";
+  }
   const startConversation = (senderId, receiverId) => {
-    dispatch(createConversation(senderId, receiverId))
+    dispatch(createConversation(senderId, receiverId))}
 
   if (!posts) {
     return "Loader";

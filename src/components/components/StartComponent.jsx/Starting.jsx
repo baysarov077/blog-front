@@ -41,19 +41,26 @@ const Starting = () => {
       <Reviews />
       <div className="container">
         <Row xs={1} md={2} className="g-4">
-          {Array.from({ length: 4 }).map((_, idx) => (
+          {Array.from({ length: 1 }).map((_, idx) => (
             <Col>
               <Card className="temacard">
                 <CardImg
                   variant="top"
-                  src="https://it-aurora.ru/wp-content/uploads/2021/03/avtomatizaciya-malogo-biznesa.jpg"
+                  src="https://www.spcdn.org/blog/wp-content/uploads/2020/09/cover-4-1110x420.png"
                 />
                 <Card.Body>
-                  <Card.Title>Card title</Card.Title>
+                  <Card.Title>
+                  Продающий текст: руководство для копирайтера и бизнеса
+                  </Card.Title>
                   <Card.Text>
-                    This is a longer card with supporting text below as a
-                    natural lead-in to additional content. This content is a
-                    little bit longer.
+                  Продающий текст ― это рекламный блок, который мотивирует пользователей на покупку продукта. Задача текста ― продемонстрировать выгоды и достоинства товара, а также развеять страхи и ответить на «боль» клиента.
+
+Текст — не гарантия продаж, но возможность заинтересовать потенциального клиента и подтолкнуть его к принятию решения.
+
+Продающий текст используется в разных форматах:
+
+Текст для посадочной страницы — лендинг. Текст располагается в блоках, которые рассказывают пользователю о полезных характеристиках продукта. Призыв к действию: купить, подписаться, оставить контактные данные.
+Текст на главную страницу. Презентация компании на главной странице интернет-магазина. Здесь должны быть блоки: о компании, ее преимуществах, продукции и ее достоинствах. Текст должен стимулировать к изучению и покупке вашей продукции.
                   </Card.Text>
                 </Card.Body>
               </Card>
