@@ -24,9 +24,6 @@
   padding-top: 10px;
 }
 
-.link :hover {
-  color: white;
-}
 
 
 .tape_text p {
@@ -114,8 +111,6 @@
 .tape_title {
   font-size: 20px;
   font-weight: 500;
-  color: var(--text-primary);
-  background-color: var(--background);
   border-bottom: 2px solid black;
 }
 

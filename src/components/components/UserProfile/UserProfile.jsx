@@ -43,6 +43,7 @@ const UserProfile = () => {
   const subscribtion = oneUser.subscrib?.find(
     (item) => item.subscribtion === myId
   );
+  console.log(oneUser);
   return (
     <div className="userProfile__lol-kek">
       <Header />

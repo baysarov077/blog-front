@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./header.css";
 import { Button, DropdownButton } from "react-bootstrap";
 import logo from "../img/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Example from "./Canvas";
 import { Dropdown } from "react-bootstrap";
@@ -14,14 +14,16 @@ const Header = ({ switchTheme }) => {
   const id = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
   const users = useSelector((state) => state.users.users);
-
+  const navigate = useNavigate()
   // useEffect(() => {
   //   dispatch(fetchUsers());
   // }, [dispatch]);
   const unSign = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("id");
+    navigate('/')
     window.location.reload();
+
   };
   const [open, setOpen] = useState(true);
   const [value, setValue] = useState("");
@@ -98,11 +100,9 @@ const Header = ({ switchTheme }) => {
               ) : null}
 
               {token ? (
-                <Link to={"/"}>
                   <Button onClick={unSign} className="headerBtn auth">
                     Выйти
                   </Button>
-                </Link>
               ) : (
                 <Link to={"/reg"}>
                   <Button className="headerBtn auth">Войти</Button>

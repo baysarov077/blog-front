@@ -92,10 +92,10 @@ const BlogPage = () => {
                             src={`http://localhost:8000/${item.img}`}
                             alt="photo"
                           />
-                          <div className="tape_text">
-                            {/* <p>{item.text.substr(0, 200) + "..."}</p>{" "} */}
+                          {/* <div className="tape_text">
+
                             <p>{item.text.substr(0, 100) + "..."}</p>{" "}
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                     </Link>

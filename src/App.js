@@ -20,6 +20,7 @@ import WeatherApp from "./components/components/profile/Weather/WeatherApp";
 import TapePage from "./components/Tape/TapePage";
 import MainTapeBlog from "./components/Tape/MainTapeBlog";
 import UserProfile from "./components/components/UserProfile/UserProfile";
+import Messenger from "./components/pages/Messenger/Messenger";
 
 function App() {
   const user = useSelector((state) => state.auth.userId);
@@ -54,7 +55,7 @@ function App() {
             <Route path="/post" element={<MainTapeBlog />} />
             <Route path="/post/:id" element={<TapePage />} />
             <Route path="/user/:id" element={<UserProfile />} />
-
+            <Route path="/messenger" element={!user ? <Login /> : <Messenger />} />
           </Routes>
         </BrowserRouter>
       </Provider>
