@@ -8,7 +8,11 @@ import { addSub, fetchUsers } from "../../redux/fearutes/user";
 const TapeHeader = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
+
   const myId = useSelector((state) => state.auth.userId);
+// поменял назване переменной, дабы не путалис и на 51 строке тоже
+  const myIdLocal = localStorage.getItem("id");
+
   const userImg = useSelector((state) =>
     state.imgReducer.users.find((user) => user.img)
   );
@@ -30,9 +34,11 @@ const TapeHeader = () => {
     return "loading...";
   }
 
+
   const consilium = (user, myId) => {
     return user.subscrib.find((item) => item.subscribtion === myId);
   };
+// сама функция
 
   return (
     <div className="tape_header_main">
@@ -42,8 +48,22 @@ const TapeHeader = () => {
             if (item._id === id && item.user === user._id) {
               return (
                 <div className="tape_profile_post" key={item._id}>
-                  {consilium(user, myId) ? (
+{myId === user._id ? (
+                    <Link to={`/profile/${myId}`}>
+                      <img
+                        className=""
+                        src={`http://localhost:8000/${user.img}`}
+                      />
+                      <div>
+                        <span className="header__nickaname">
+                          {user.nickname}
+                        </span>
+                      </div>
+                    </Link>
+                  ) : 
+                  ({consilium(user, myId) ? (
                     <Link to={`/user/${user._id}`}>
+
                       <img
                         className=""
                         src={`http://localhost:8000/${user.img}`}
@@ -55,6 +75,7 @@ const TapeHeader = () => {
                       </div>
                     </Link>
                   ) : (
+
                     <>
                       {" "}
                       {user.profileStatus ? (
@@ -81,8 +102,10 @@ const TapeHeader = () => {
                             </span>
                           </div>
                         </Link>
-                      )}{" "}
+                      )}){" "}
                     </>
+// в общем тут сделал условие, если профиль закрыт и ты не подписан, кидает на закрытый профиль, я не знаю сработает или нет, потому что дени тоже сделал функцию тут, ее взял и поставил как первое условие
+// Его условие: Если ты жмешь по своему профилю кидать на свой профиль, который в хидере, если фолс, идет моя функция
                   )}
                 </div>
               );

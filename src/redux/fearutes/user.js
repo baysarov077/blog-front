@@ -3,7 +3,7 @@ const userState = {
   loading: true,
   user: {},
 };
-
+//тут без понятия что случилось, я ничего не трогал
 export const users = (state = userState, action) => {
   switch (action.type) {
     case "users/fetch/pending":
@@ -39,21 +39,24 @@ export const users = (state = userState, action) => {
         ...state,
         user: action.payload,
         loading: false,
-      };
+
+
+      }
     }
     case "addSub/user/fulfilled": {
-      return {
+      return{
         ...state,
         user: action.payload,
         loading: false,
-      };
+      }
     }
     case "deleteSub/user/fulfilled": {
-      return {
+      return{
         ...state,
         user: action.payload,
         loading: false,
-      };
+      }
+
     }
     default:
       return state;

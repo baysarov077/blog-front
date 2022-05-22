@@ -5,9 +5,11 @@ import { loadBlog } from "../../../redux/reducers/Blog";
 import { addImage, getImage } from "../../../redux/reducers/image";
 import Header from "../Header";
 
+
 import { BsPen } from "react-icons/bs";
 import "./style.css";
 
+//тут просто применился преттер
 const Profile = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -21,6 +23,7 @@ const Profile = () => {
   const user = useSelector((state) =>
     state.imgReducer.users.find((user) => user._id === id)
   );
+
   const loder = useSelector((state) => state.imgReducer.loader);
 
   console.log(user);
@@ -30,38 +33,38 @@ const Profile = () => {
   console.log(blogus);
 
   if (!user) {
+
     return "loading...";
   }
 
-  let now = new Date();
-  let hour = now.getHours();
-  let message = "";
+
+  let now = new Date()
+  let hour = now.getHours()
+  let message = '';
+
 
   if (hour <= 6) {
-    message = "Доброе время суток";
+    message = 'Доброе время суток';
   } else if (hour <= 12) {
-    message = "Доброе утро";
+    message = 'Доброе утро';
   } else if (hour <= 18) {
-    message = "Добрый день";
+    message = 'Добрый день';
   } else {
-    message = "Добрый вечер";
+    message = 'Добрый вечер';
   }
 
   return (
+  
     <div className="background__image">
       <Header />
       <div className="prosto__probel"></div>
-      <div className="border__radius">
+      <div className="border__radius" >
         <div className="main_div">
           <div className="photo_back">
             <label htmlFor="upload_photo">
-              <input
-                id="upload_photo"
-                className="file"
-                onChange={(e) => setFile(e.target.files[0])}
-                type="file"
-              />
+              <input id="upload_photo" className="file" onChange={(e) => setFile(e.target.files[0])} type="file" />
               <div>
+
                 {user.img ? (
                   <img
                     className="img"
@@ -73,20 +76,25 @@ const Profile = () => {
                     src={`https://upload.wikimedia.org/wikipedia/ru/thumb/c/ce/Aang.png/280px-Aang.png`}
                   />
                 )}
+
               </div>
+
             </label>
             <div className="button__edit__profile">
+
               <button className="button">
                 <NavLink className="navLink" to={`/edit/profile/${id}`}>
                   Редактировать профиль
                 </NavLink>
               </button>
+
             </div>
 
             <div>
               <h1 className="nick__name">
                 {message} {user.nickname}
               </h1>
+
               <p className="id_p">{user._id}</p>
               <p></p>
 
@@ -95,6 +103,8 @@ const Profile = () => {
               </p>
             </div>
           </div>
+
+
         </div>
       </div>
 
@@ -112,9 +122,12 @@ const Profile = () => {
               </Link>
             </p>
           </div>
+
         </>
       ) : null}
+
     </div>
+
   );
 };
 
