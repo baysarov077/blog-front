@@ -218,7 +218,7 @@ input:checked + .slider:before {
   background-color: var(--background);
   border-radius: 20px;
   margin-bottom: 10%;
-  box-shadow: 0px 5px 23px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 3px 15px 0px var(--text-primary);
   transition: 0.2s;
 }
 
@@ -325,8 +325,9 @@ input:checked + .slider:before {
   width: 15%px;
   font-size: 20px;
   border: none;
-  color: var(--text-primary);
-  background-color: var(--background);
+  padding: 10px;
+  color: white;
+  background-color: rgb(0, 136, 255);
   border-radius: 5px;
   transition: 0.3s;
 }
@@ -339,9 +340,16 @@ input:checked + .slider:before {
   text-align: center;
 }
 
+.reviews-loading-div {
+  text-align: center;
+  margin: 150px auto;
+  font-size: 50px;
+}
+
 .single-review {
   width: 90%;
   margin: auto;
+  margin-top: 20px;
   margin-bottom: 50px;
   font-size: 25px;
   color: var(--text-primary);
@@ -349,7 +357,7 @@ input:checked + .slider:before {
   border-radius: 10px;
   padding: 30px;
   transition: 0.2s;
-  box-shadow: 1px 1px 3px grey;
+  box-shadow: 1px 1px 3px var(--text-primary);
   position: relative;
 }
 
@@ -414,41 +422,37 @@ input:checked + .slider:before {
 
 .five-stars,
 .five-stars ~ span {
-  color: var(--text-primary);
+  color: gold;
   background-color: var(--background);
   text-shadow: 1px 1px #c60;
 }
 
 .four-stars,
 .four-stars ~ span {
-  color: var(--text-primary);
+  color: gold;
   background-color: var(--background);
   text-shadow: 1px 1px #c60;
 }
 
 .three-stars,
 .three-stars ~ span {
-  color: var(--text-primary);
+  color: gold;
   background-color: var(--background);
   text-shadow: 1px 1px #c60;
 }
 
 .two-stars,
 .two-stars ~ span {
-  color: var(--text-primary);
+  color: gold;
   background-color: var(--background);
   text-shadow: 1px 1px #c60;
 }
 
 .one-star,
 .one-star ~ span {
-  color: var(--text-primary);
+  color: gold;
   background-color: var(--background);
   text-shadow: 1px 1px #c60;
-}
-
-.rating-area {
-  overflow: hidden;
 }
 
 .rating-area:not(:checked) > input {

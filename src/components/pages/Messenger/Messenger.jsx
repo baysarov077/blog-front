@@ -1,5 +1,4 @@
 import "./messenger.css";
-import Header from "../../components/Header";
 import Conversation from "./Conversation";
 import Message from "./Message";
 import { useSelector, useDispatch } from "react-redux";
@@ -10,6 +9,8 @@ import {
   loadMessages,
 } from "../../../redux/reducers/Messenger";
 import { io } from "socket.io-client";
+import { Link } from "react-router-dom";
+
 
 const Messenger = () => {
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ const Messenger = () => {
 
   useEffect(() => {
     socket.current.emit("addUser", userId);
-    socket.current.on("getUsers");
+    socket.current.on("getUsers", () => {});
   }, [userId]);
 
   const messages = useSelector((state) => state.messengerReducer.messages);
@@ -53,7 +54,7 @@ const Messenger = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const receiverId = currentChat.members.find((member) => member !== userId);
+    const receiverId = currentChat?.members.find((member) => member !== userId);
 
     socket.current.emit("sendMessage", {
       senderId: userId,
@@ -77,49 +78,67 @@ const Messenger = () => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  const addBtn = document.querySelector(".chat-submit-button")
+
   return (
     <>
-      <Header />
-      <div></div>
-      <div className="messenger">
-        <div className="chat-menu">
-          <div className="chat-menu-wrapper">
-            {conversations.map((con) => (
-              <div onClick={() => setCurrentChat(con)}>
-                <Conversation conversation={con} currentUser={userId} />
-              </div>
-            ))}
-          </div>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+      />
+      <div className="messenger-body">
+        <Link to={"/"}>
+        <div className="back-home">
+          <span className="material-symbols-outlined">keyboard_backspace</span>
+          <span className="back-home-sign">Домой</span>
         </div>
-        <div className="chat-box">
-          <div className="chat-box-wrapper">
-            {currentChat ? (
-              <>
-                <div className="chat-box-top">
-                  {messages.map((message) => (
-                    <div ref={scrollRef}>
-                      <Message
-                        message={message}
-                        own={message.sender === userId}
-                      />
-                    </div>
-                  ))}
+        </Link>
+        <div className="messenger">
+          <div className="chat-menu">
+            <div className="chat-menu-wrapper">
+              {conversations.map((con) => (
+                <div onClick={() => setCurrentChat(con)}>
+                  <Conversation key={con._id} conversation={con} currentUser={userId} />
                 </div>
-                <div className="chat-box-bottom">
-                  <textarea
-                    className="chat-message-input"
-                    placeholder="Введите сообщение..."
-                    onChange={(e) => setNewMessage(e.target.value)}
-                    value={newMessage}
-                  ></textarea>
-                  <button className="chat-submit-button" onClick={handleSubmit}>
-                    Send
-                  </button>
-                </div>
-              </>
-            ) : (
-              <span className="no-chat-text">Начните беседу...</span>
-            )}
+              ))}
+            </div>
+          </div>
+          <div className="chat-box">
+            <div className="chat-box-wrapper">
+              {currentChat ? (
+                <>
+                  <div className="chat-box-top">
+                    {messages.map((message) => (
+                      <div ref={scrollRef}>
+                        <Message
+                          key={message._id}
+                          message={message}
+                          own={message.sender === userId}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="chat-box-bottom">
+                    <input
+                      type="text"
+                      className="chat-message-input"
+                      placeholder="Введите сообщение..."
+                      onChange={(e) => setNewMessage(e.target.value)}
+                      value={newMessage}
+                      onKeyDown={(e) => e.code === "Enter" ? addBtn.click() : null}
+                    ></input>
+                    <button
+                      className="chat-submit-button"
+                      onClick={handleSubmit}
+                    >
+                      Send
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <span className="no-chat-text">Начните беседу...</span>
+              )}
+            </div>
           </div>
         </div>
       </div>

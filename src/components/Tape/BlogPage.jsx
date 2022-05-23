@@ -88,19 +88,22 @@ const BlogPage = () => {
                       <div className="tape_text_info">
                         <div>
                           <p className="tape_title">{item.title}</p>
+                        </div>     
+                        <div className="tape_text">
+                          <p>{item.text.substr(0, 100) + "..."}</p>{" "}
                         </div>
+                       </div?
+                        {/* <div key={i}> */}
+                          <img
+                            className="tape_img"
+                            src={`http://localhost:8000/${item.img}`}
+                            alt="photo"
+                          />
                         <div className="tape_text">
                           <p>{item.text.substr(0, 200) + "..."}</p>{" "}
-                        </div>
-                      </div>
-                      <div key={i}>
-                        <img
-                          className="tape_img"
-                          src={`http://localhost:8000/${item.img}`}
-                          alt="photo"
-                        />
-                      </div>
-                    </div>
+                          <p>{item.text.substr(0, 100) + "..."}</p>{" "}             
+                         </div>
+                     </div>
                   </Link>
                 </div>
                 <div className="tape_footer">
