@@ -3,15 +3,19 @@
   align-items: center;
   padding: 10px;
   cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(177, 215, 251);
+  transition: all .3s;
 }
 
 .conversation:hover {
-  background-color: rgb(242, 242, 242);
+  background-color: rgb(240, 240, 240);
+  border-radius: 5px;
 }
 
 .conversation-img {
-  height: 40px;
-  width: 40px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 20px;

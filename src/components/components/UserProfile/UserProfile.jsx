@@ -36,6 +36,7 @@ const UserProfile = () => {
   // }
   const startConversation = (senderId, receiverId) => {
     dispatch(createConversation(senderId, receiverId))
+  }
 
   if (!posts) {
     return "Loader";

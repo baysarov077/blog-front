@@ -95,14 +95,14 @@ const BlogPage = () => {
                             <p>{item.text.substr(0, 100) + "..."}</p>{" "}
                           </div>
                         </div>
-                        <div key={i}>
+                        {/* <div key={i}> */}
                           <img
                             className="tape_img"
                             src={`http://localhost:8000/${item.img}`}
                             alt="photo"
                           />
                         <div className="tape_text">
-                          {/* <p>{item.text.substr(0, 200) + "..."}</p>{" "} */}
+                          <p>{item.text.substr(0, 200) + "..."}</p>{" "}
                           <p>{item.text.substr(0, 100) + "..."}</p>{" "}
                         </div>
                       </div>

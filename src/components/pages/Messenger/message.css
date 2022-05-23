@@ -2,6 +2,7 @@
   margin-top: 20px;
   display: flex;
   flex-direction: column;
+  margin-left: 10px;
 }
 
 .message-top {
@@ -9,17 +10,17 @@
 }
 
 .message-img {
-  width: 32px;
-  height: 32px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: 10px;
+  margin-right: 12px;
 }
 
 .message-text {
-  padding: 10px;
-  border-radius: 20px;
-  background-color: #0d6efd;
+  padding: 8px 15px;
+  border-radius: 10px;
+  background-color: #2eadf6;
   color: white;
   max-width: 300px;
 }
@@ -29,6 +30,6 @@
 }
 
 .message.own .message-text {
-  background-color: rgb(241, 241, 241);
-  color: black;
+  background-color: rgb(223, 255, 224);
+  color: rgb(60, 60, 60);
 }
