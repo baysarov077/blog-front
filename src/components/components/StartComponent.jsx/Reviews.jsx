@@ -21,12 +21,17 @@ const Reviews = () => {
   const [warningWindow, setWarningWindow] = useState(false)
   const [btnName, setBtnName] = useState(true)
 
+  useEffect(() => {
+    dispatch(loadReviews());
+  }, [reviews, dispatch]);
+
   const addNewReview = () => {
     if (reviewRating && reviewText) {
       dispatch(addReview(userId, reviewText, reviewRating));
       setReviewText("");
       setReviewRating(0);
       setReviewWindow(false)
+      setBtnName(true)
       setUpd(!upd);
     }
   };
@@ -41,16 +46,18 @@ const Reviews = () => {
     }
   };
 
-  useEffect(() => {
-    dispatch(loadReviews());
-  }, [dispatch, upd]);
-
-  const delReview = (id) => {
-    dispatch(deleteReview(id));
+  const delReview = (itemId, itemUserId) => {
+    if (!userId) {
+      return alert("Необходимо авторизоваться")
+    }
+    if (userId !== itemUserId) {
+      return alert("Можно удалить только свой отзыв")
+    }
+    dispatch(deleteReview(itemId));
   };
 
   if (load) {
-    return <div>loading...</div>;
+    return <div className="reviews-loading-div">loading...</div>;
   }
 
   return (
@@ -139,7 +146,7 @@ const Reviews = () => {
             <div key={item._id} className="single-review">
               <span
                 class="material-symbols-outlined"
-                onClick={() => delReview(item._id)}
+                onClick={() => delReview(item._id, item.user._id)}
               >
                 cancel
               </span>

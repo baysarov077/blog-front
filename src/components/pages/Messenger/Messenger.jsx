@@ -77,6 +77,8 @@ const Messenger = () => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
+  const addBtn = document.querySelector(".chat-submit-button")
+
   return (
     <>
       <link
@@ -122,6 +124,7 @@ const Messenger = () => {
                       placeholder="Введите сообщение..."
                       onChange={(e) => setNewMessage(e.target.value)}
                       value={newMessage}
+                      onKeyDown={(e) => e.code === "Enter" ? addBtn.click() : null}
                     ></input>
                     <button
                       className="chat-submit-button"

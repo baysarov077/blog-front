@@ -21,42 +21,42 @@ export const reviewsReducer = (state = initialState, action) => {
     case "reviews/fetch/pending":
       return {
         ...state,
-        load: true
-      }
+        // load: true
+      };
     case "reviews/fetch/add/fulfilled":
       return {
         ...state,
         reviews: [...state.reviews, action.payload],
-        load: false
-      }
+        load: false,
+      };
     case "reviews/fetch/add/rejected":
       return {
         ...state,
         error: action.error,
-        load: false
-      }
+        load: false,
+      };
     case "reviews/fetch/add/pending":
       return {
         ...state,
-        load: true
-      }
+        load: true,
+      };
     case "reviews/fetch/delete/fulfilled":
       return {
         ...state,
         reviews: state.reviews.filter((item) => item._id !== action.payload),
-        load: false
-      }
+        load: false,
+      };
     case "reviews/fetch/delete/rejected":
       return {
         ...state,
         error: action.error,
-        load: false
-      }
+        load: false,
+      };
     case "reviews/fetch/delete/pending":
       return {
         ...state,
-        load: true
-      }
+        load: true,
+      };
     default:
       return state;
   }
@@ -78,32 +78,39 @@ export const loadReviews = () => {
 export const addReview = (userId, reviewText, reviewRating) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: "reviews/fetch/add/pending" })
+      dispatch({ type: "reviews/fetch/add/pending" });
       const res = await fetch("http://localhost:8000/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ user: userId, text: reviewText, rating: reviewRating }),
-      })
-      const review = await res.json()
-      dispatch({ type: "reviews/fetch/add/fulfilled", payload: review })
+        body: JSON.stringify({
+          user: userId,
+          text: reviewText,
+          rating: reviewRating,
+        }),
+      });
+      const review = await res.json();
+      dispatch({ type: "reviews/fetch/add/fulfilled", payload: review });
     } catch (error) {
-      dispatch({ type: "reviews/fetch/add/rejected", error: error.toString() })
+      dispatch({ type: "reviews/fetch/add/rejected", error: error.toString() });
     }
-  }
-}
+  };
+};
 
 export const deleteReview = (id) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: "reviews/fetch/delete/pending" })
+      dispatch({ type: "reviews/fetch/delete/pending" });
       const res = await fetch(`http://localhost:8000/reviews/${id}`, {
         method: "DELETE",
-      })
-      dispatch({ type: "reviews/fetch/delete/fulfilled", payload: id })
+      });
+      dispatch({ type: "reviews/fetch/delete/fulfilled", payload: id });
     } catch (error) {
-      dispatch({ type: "reviews/fetch/delete/rejected", error: error.toString() })
+      dispatch({
+        type: "reviews/fetch/delete/rejected",
+        error: error.toString(),
+      });
     }
-  }
-}
+  };
+};
