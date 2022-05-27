@@ -6,8 +6,13 @@ import Features from "./Features";
 import Reviews from "./Reviews";
 import Footer from "../Footer/Footer";
 import { Accordion, Card, CardImg, Col, Row } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Starting = () => {
+  const navigate = useNavigate();
+  const hadleToBlog = () => {
+    navigate("/blog");
+  };
   return (
     <section className="startSection">
       <div className="container">
@@ -15,21 +20,25 @@ const Starting = () => {
           <div>
             <div>
               <h1 className="startingHeading">
-                <span className="purple">Home</span> for tech <br />
-                writers and
-                <br /> readers
+                <span className="purple">Блоги</span> студентов <br />
+                Intocode
+                <br />
               </h1>
             </div>
             <div>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
-                nesciunt expedita libero, in nihil ipsum omnis quis! Animi
-                nesciunt quidem, exercitationem repellendus, numquam odio
-                placeat aliquam amet non expedita perferendis.
+                1. Прогуляться по другим блогам и найти «тексты о себе», которые
+                вам нравятся, которые привлекли ваше внимание и проанализировать
+                почему. <br /> 2. Составить список из 5-10-15 блогов, которые
+                вам нравятся именно с визуальной точки зрения. Проанализировать,
+                чем именно они вам нравятся. Подумать, какие элементы вы могли
+                бы применить в своем блоге и почему.
               </p>
             </div>
             <div className="largeBtnBlock">
-              <button className="largeBtn">Large button</button>
+              <button onClick={hadleToBlog} className="largeBtn">
+                Create blog
+              </button>
             </div>
           </div>
           <div className="imgMain1">
@@ -40,7 +49,7 @@ const Starting = () => {
       <Features />
       <Reviews />
       <div className="container">
-        <Row xs={1} md={2} className="g-4">
+        {/* <Row xs={1} md={2} className="g-4">
           {Array.from({ length: 4 }).map((_, idx) => (
             <Col>
               <Card className="temacard">
@@ -59,7 +68,7 @@ const Starting = () => {
               </Card>
             </Col>
           ))}
-        </Row>
+        </Row> */}
         <div className="questions">
           <Accordion>
             <Accordion.Item className="question" eventKey="0">
@@ -113,8 +122,6 @@ const Starting = () => {
           </Accordion>
         </div>
       </div>
-
-      <Footer />
     </section>
   );
 };

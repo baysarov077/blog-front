@@ -40,7 +40,7 @@
 }
 
 .sidebar-link:hover {
-  color: black;
+  color: var(--text-primary);
 }
 
 @media screen and (max-width: 768px) {
@@ -61,7 +61,7 @@
     margin: 0;
     padding: 0;
     border-right: 0;
-    top: 22%;
+    top: 12%;
     left: 100px;
     box-shadow: 0 0 8px 3px rgba(220, 220, 220, 0.53);
     display: flex;
@@ -138,6 +138,6 @@
 
 @media screen and (min-width: 768px) and (max-width: 1270px) {
   .sidebar {
-    margin-top: 8%;
+    top: 13%;
   }
 }

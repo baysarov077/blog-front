@@ -46,7 +46,7 @@ const UserProfile = () => {
   return (
     <div className="userProfile__lol-kek">
       <Header />
-      <div className="border__radius-deni">
+      <div className="borderradius-deni">
         <div className="main_div-deni">
           <div className="photo_back-deni">
             <div className="profile-img-deni">
@@ -58,7 +58,7 @@ const UserProfile = () => {
                 <div className="de__profile-nickname">{oneUser.nickname}</div>
                 <div className="de__profile-subs">
                   <span>Подписчики: {oneUser.subscrib?.length}</span>
-                  <span>Подписчики: {oneUser.subscript?.length}</span>
+                  <span>Подписки: {oneUser.subscript?.length}</span>
                   <span>Публикации: {posts.length} </span>
                 </div>
               </div>

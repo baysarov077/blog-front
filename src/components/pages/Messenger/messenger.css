@@ -1,16 +1,20 @@
 .messenger {
   width: 70%;
   margin: auto;
-  height: calc(100vh - 110px);
+  height: 90%;
   display: flex;
+  padding-top: 5%;
 }
 
 .chat-menu {
-  flex: 2
+  flex: 2;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 0;
 }
 
 .chat-box {
-  flex: 6
+  flex: 6;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .chat-box-top {
@@ -28,16 +32,21 @@
 
 .chat-message-input {
   width: 80%;
-  height: 90px;
+  height: 40px;
   padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.2);
 }
 
 .chat-submit-button {
   width: 70px;
-  height: 40px;
+  height: 39px;
+  margin-right: 12%;
   border: none;
   border-radius: 5px;
-  background-color: teal;
+  background-color: rgb(0, 110, 255);
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.2);
   color: white;
 }
 
@@ -59,4 +68,10 @@
   font-size: 50px;
   color: rgb(227, 227, 227);
   text-align: center;
+}
+
+@media screen and (max-width: 1290px) {
+  .messenger {
+    padding-top: 12%;
+  }
 }

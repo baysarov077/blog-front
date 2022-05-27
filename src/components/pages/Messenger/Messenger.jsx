@@ -106,12 +106,12 @@ const Messenger = () => {
                   ))}
                 </div>
                 <div className="chat-box-bottom">
-                  <textarea
+                  <input
                     className="chat-message-input"
                     placeholder="Введите сообщение..."
                     onChange={(e) => setNewMessage(e.target.value)}
                     value={newMessage}
-                  ></textarea>
+                  ></input>
                   <button className="chat-submit-button" onClick={handleSubmit}>
                     Send
                   </button>

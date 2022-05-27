@@ -43,6 +43,7 @@ p {
   color: var(--text-primary);
   background-color: var(--background);
 }
+
 .startImg {
   max-width: 100%;
   animation-name: rotation;
@@ -50,6 +51,7 @@ p {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
 
 @keyframes rotation {
   0% {
@@ -60,20 +62,23 @@ p {
     transform: rotate(360deg);
   }
 }
+
 .temamain {
   background-color: var(--background);
 }
+
 .temacard {
   background-color: var(--background);
   color: var(--text-primary);
 }
+
 .largeBtn {
   width: 190px;
   height: 50px;
   font-size: 18px;
   font-weight: 500;
-  border: 0;
-  color: var(--text-primary);
+  border: 1px solid rgb(0, 102, 255);
+  color: var(--text-primary) rgb(0, 102, 255);
   background-color: var(--background);
   border-radius: 5px;
 }
@@ -83,17 +88,13 @@ p {
 .features {
   margin-top: 10%;
   margin-bottom: 10%;
-  background: radial-gradient(
-    circle,
-    rgb(63 94 251 / 15%) 0%,
-    rgb(252 70 107 / 15%) 100%
-  );
+  background: radial-gradient(circle,
+      rgb(63 94 251 / 15%) 0%,
+      rgb(252 70 107 / 15%) 100%);
   border-radius: 20px;
-  background: radial-gradient(
-    circle,
-    rgb(63 94 251 / 20%) 0%,
-    rgb(252 70 107 / 20%) 100%
-  );
+  background: radial-gradient(circle,
+      rgb(63 94 251 / 20%) 0%,
+      rgb(252 70 107 / 20%) 100%);
   padding: 10%;
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   transition: 0.3s;
@@ -112,12 +113,10 @@ p {
 
 .features-title span {
   background-clip: text;
-  background-image: linear-gradient(
-    90deg,
-    rgba(131, 58, 180, 1) 0%,
-    rgba(253, 29, 29, 1) 100%,
-    rgba(252, 176, 69, 1) 100%
-  );
+  background-image: linear-gradient(90deg,
+      rgba(131, 58, 180, 1) 0%,
+      rgba(253, 29, 29, 1) 100%,
+      rgba(252, 176, 69, 1) 100%);
   color: transparent;
 }
 
@@ -158,55 +157,55 @@ p {
 /* From uiverse.io by @satyamchaudharydev */
 /* The switch - the box around the slider */
 .switch {
-/* --moon-mask: ; */
- font-size: 17px;
- position: relative;
- display: inline-block;
- width: 3.5em;
- height: 2em;
+  /* --moon-mask: ; */
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
 }
 
 /* Hide default HTML checkbox */
 .switch input {
- opacity: 0;
- width: 0;
- height: 0;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 /* The slider */
 .slider {
- position: absolute;
- cursor: pointer;
- top: 0;
- left: 0;
- right: 0;
- bottom: 0;
- background-color: #f4f4f5;
- transition: .4s;
- border-radius: 30px;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f4f4f5;
+  transition: .4s;
+  border-radius: 30px;
 }
 
 .slider:before {
- position: absolute;
- content: "";
- height: 1.4em;
- width: 1.4em;
- border-radius: 20px;
- left: 0.3em;
- bottom: 0.3em;
- background: linear-gradient(40deg,#ff0080,#ff8c00 70%);
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 20px;
+  left: 0.3em;
+  bottom: 0.3em;
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
 
- transition: .4s;
+  transition: .4s;
 }
 
-input:checked + .slider {
- background-color: #303136;
+input:checked+.slider {
+  background-color: #303136;
 }
 
-input:checked + .slider:before {
- transform: translateX(1.5em);
- background: #303136;
- box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -5px 0 0 #a3dafb;
+input:checked+.slider:before {
+  transform: translateX(1.5em);
+  background: #303136;
+  box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -5px 0 0 #a3dafb;
 }
 
 .reviews {
@@ -324,7 +323,8 @@ input:checked + .slider:before {
   margin-bottom: 100px;
   width: 15%px;
   font-size: 20px;
-  border: none;
+  border: 1px solid rgba(34, 60, 80, 0.2);
+  padding: 5px;
   color: var(--text-primary);
   background-color: var(--background);
   border-radius: 5px;
@@ -385,6 +385,7 @@ input:checked + .slider:before {
   width: 60px;
   border-radius: 50%;
   margin-right: 20px;
+  object-fit: cover;
 }
 
 .review-name {
@@ -413,37 +414,32 @@ input:checked + .slider:before {
 }
 
 .five-stars,
-.five-stars ~ span {
-  color: var(--text-primary);
-  background-color: var(--background);
+.five-stars~span {
+  color: gold;
   text-shadow: 1px 1px #c60;
 }
 
 .four-stars,
-.four-stars ~ span {
-  color: var(--text-primary);
-  background-color: var(--background);
+.four-stars~span {
+  color: gold;
   text-shadow: 1px 1px #c60;
 }
 
 .three-stars,
-.three-stars ~ span {
-  color: var(--text-primary);
-  background-color: var(--background);
+.three-stars~span {
+  color: gold;
   text-shadow: 1px 1px #c60;
 }
 
 .two-stars,
-.two-stars ~ span {
-  color: var(--text-primary);
-  background-color: var(--background);
+.two-stars~span {
+  color: gold;
   text-shadow: 1px 1px #c60;
 }
 
 .one-star,
-.one-star ~ span {
-  color: var(--text-primary);
-  background-color: var(--background);
+.one-star~span {
+  color: gold;
   text-shadow: 1px 1px #c60;
 }
 
@@ -451,11 +447,11 @@ input:checked + .slider:before {
   overflow: hidden;
 }
 
-.rating-area:not(:checked) > input {
+.rating-area:not(:checked)>input {
   display: none;
 }
 
-.rating-area:not(:checked) > label {
+.rating-area:not(:checked)>label {
   float: right;
   width: 50px;
   padding: 0;
@@ -467,30 +463,30 @@ input:checked + .slider:before {
   text-shadow: 1px 1px #bbb;
 }
 
-.rating-area:not(:checked) > label:before {
+.rating-area:not(:checked)>label:before {
   content: "★";
 }
 
-.rating-area > input:checked ~ label {
+.rating-area>input:checked~label {
   color: gold;
   text-shadow: 1px 1px #c60;
 }
 
-.rating-area:not(:checked) > label:hover,
-.rating-area:not(:checked) > label:hover ~ label {
+.rating-area:not(:checked)>label:hover,
+.rating-area:not(:checked)>label:hover~label {
   color: gold;
 }
 
-.rating-area > input:checked + label:hover,
-.rating-area > input:checked + label:hover ~ label,
-.rating-area > input:checked ~ label:hover,
-.rating-area > input:checked ~ label:hover ~ label,
-.rating-area > label:hover ~ input:checked ~ label {
+.rating-area>input:checked+label:hover,
+.rating-area>input:checked+label:hover~label,
+.rating-area>input:checked~label:hover,
+.rating-area>input:checked~label:hover~label,
+.rating-area>label:hover~input:checked~label {
   color: gold;
   text-shadow: 1px 1px goldenrod;
 }
 
-.rate-area > label:active {
+.rate-area>label:active {
   position: relative;
 }
 
@@ -544,5 +540,11 @@ input:checked + .slider:before {
 @media screen and (max-width: 630px) {
   .startSection {
     margin-top: 20%;
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .startSection {
+    margin-top: 10%;
   }
 }

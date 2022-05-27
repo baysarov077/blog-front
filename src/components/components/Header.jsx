@@ -8,15 +8,23 @@ import { useDispatch, useSelector } from "react-redux";
 import Example from "./Canvas";
 import { Dropdown } from "react-bootstrap";
 import { fetchUsers } from "../../redux/fearutes/user";
+import { getImage } from "../../redux/reducers/image";
 
 const Header = ({ switchTheme }) => {
   const dispatch = useDispatch();
   const id = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
   const users = useSelector((state) => state.users.users);
+  // const urs = useSelector((state) =>
+  //   state.imgReducer.users.find((item) => item._id === id)
+  // );
 
   // useEffect(() => {
   //   dispatch(fetchUsers());
+  // }, [dispatch]);
+
+  // useEffect(() => {
+  //   dispatch(getImage());
   // }, [dispatch]);
   const unSign = () => {
     localStorage.removeItem("token");
@@ -118,6 +126,17 @@ const Header = ({ switchTheme }) => {
             </div>
           </div>
         </div>
+        {/* <div>
+          {console.log(urs)}
+          {urs.map((item) => {
+            return (
+              <div>
+                {item.nickname}
+                {item.img}
+              </div>
+            );
+          })}
+        </div> */}
       </header>
       {value && (
         <div className="modalw">

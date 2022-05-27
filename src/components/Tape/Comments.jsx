@@ -20,9 +20,7 @@ const Comments = () => {
 
   const blogComt = useSelector((state) => state.commentsReducer.comments);
 
-
   const users = useSelector((state) => state.users.users);
-
 
   const addComt = (e) => {
     e.preventDefault();
@@ -62,11 +60,6 @@ const Comments = () => {
               <fieldset>
                 <div class="row">
                   <div class="col-sm-3 col-lg-2 hidden-xs">
-                    <img
-                      class="img-responsive"
-                      src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                      alt=""
-                    />
                     {users.map((user) => {
                       if (user._id === idLocal) {
                         return (

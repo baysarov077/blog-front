@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { fetchOneUser } from "../../../redux/fearutes/user";
 import {
   addReview,
   deleteReview,
   loadReviews,
 } from "../../../redux/reducers/Review";
-import avatar from "../../img/avatar.jpg";
 
 const Reviews = () => {
   const dispatch = useDispatch();
@@ -13,20 +13,22 @@ const Reviews = () => {
   const userId = useSelector((state) => state.auth.userId);
   const token = useSelector((state) => state.auth.token);
   const reviews = useSelector((state) => state.reviewsReducer.reviews);
+  const me = useSelector((state) => state.users.user);
+  const myId = localStorage.getItem("id");
   const load = useSelector((state) => state.reviewsReducer.load);
   const [reviewWindow, setReviewWindow] = useState(false);
   const [reviewText, setReviewText] = useState("");
   const [reviewRating, setReviewRating] = useState(0);
   const [upd, setUpd] = useState(true);
-  const [warningWindow, setWarningWindow] = useState(false)
-  const [btnName, setBtnName] = useState(true)
+  const [warningWindow, setWarningWindow] = useState(false);
+  const [btnName, setBtnName] = useState(true);
 
   const addNewReview = () => {
     if (reviewRating && reviewText) {
       dispatch(addReview(userId, reviewText, reviewRating));
       setReviewText("");
       setReviewRating(0);
-      setReviewWindow(false)
+      setReviewWindow(false);
       setUpd(!upd);
     }
   };
@@ -34,12 +36,15 @@ const Reviews = () => {
   const toggleWindow = () => {
     if (token) {
       setReviewWindow(!reviewWindow);
-      setBtnName(!btnName)
+      setBtnName(!btnName);
     } else if (!token) {
-      setWarningWindow(!warningWindow)
-      setBtnName(!btnName)
+      setWarningWindow(!warningWindow);
+      setBtnName(!btnName);
     }
   };
+  // useEffect(() => {
+  //   dispatch(fetchOneUser(myId))
+  // }, [dispatch])
 
   useEffect(() => {
     dispatch(loadReviews());
@@ -145,7 +150,11 @@ const Reviews = () => {
               </span>
               <div className="review-info">
                 <div>
-                  <img src={avatar} alt="" className="review-avatar" />
+                  <img
+                    src={`http://localhost:8000/${item.user.img}`}
+                    alt=""
+                    className="review-avatar"
+                  />
                   <span className="review-name">{item.user.nickname}</span>
                 </div>
                 <div class="rating-result">

@@ -19,7 +19,6 @@ const BlogPage = () => {
   const idParams = useParams().id;
   const users = useSelector((state) => state.users.users);
 
-  console.log(blog);
   const userImg = useSelector((state) =>
     state.imgReducer.users.find((user) => user.img)
   );
@@ -104,7 +103,9 @@ const BlogPage = () => {
                   </Link>
                 </div>
                 <div className="tape_footer">
-                  <img src={imgMark} alt="" />
+                  <p style={{ fontSize: "16px", color: "gray" }}>
+                    Нравится: {item.likes.length}
+                  </p>
                   {likeFind ? (
                     <img
                       className="tape_like"

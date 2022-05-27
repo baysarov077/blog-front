@@ -3,8 +3,7 @@
 .borderradius-deni {
     width: 100%;
     font-family: "Montserrat";
-    background-color: rgba(245, 245, 245, 0.596);
-    color: rgb(48, 48, 48);
+    padding-top: 10%;
 }
 
 .main_div-deni {
@@ -22,6 +21,10 @@
     width: 100%;
 }
 
+.joined__to-deni {
+    font-size: 30px;
+}
+
 .id_p-deni {
     width: 400px;
     font-size: 60px;
@@ -34,7 +37,7 @@
     padding-right: 200px;
 }
 
-.buttoneditprofile-deni {
+.button__edit__profile-deni {
     display: flex;
     justify-content: flex-end;
     height: 50px;
@@ -62,19 +65,19 @@
     margin: auto;
 }
 
-.deprofile-info {
+.de__profile-info {
     width: 500px;
 }
 
-.deprofile-nickname {
+.de__profile-nickname {
     font-size: 40px;
 }
 
-.deprofile-subs {
+.de__profile-subs {
     display: flex;
     justify-content: space-between;
     font-size: 25px;
-    width: 670px;
+    width: 600px;
 }
 
 .messa {
